@@ -12,10 +12,15 @@ conda activate d2detector
 ```bash
 pip install -r requirements.txt
 ```
+Include Detectron2: Follow CUDA and Torch version to run this project.
+
+Link detail: https://detectron2.readthedocs.io/en/latest/tutorials/install.html#install-pre-built-detectron2-linux-only
+
 ## Get data
 ```bash
 bash setup_data.sh
 ```
+Include: 1 folder images (790 images) and 1 annotations coco format
 
 ## Split train test
 ```bash
