@@ -1,4 +1,6 @@
-# detectron2-object-detection
+# Predict mask detection with detectron2
+
+The FSOFT organizing committee provides a dataset of 790 pictures labeled with bounding boxes in 3 classes: wearing masks, not wearing masks and wearing masks incorrectly.
 
 ## Create virtual environment
 ```bash
