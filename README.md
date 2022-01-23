@@ -1,8 +1,18 @@
 # detectron2-object-detection
 
+## Create virtual environment
+```bash
+conda create -n d2detector python=3.8
+conda activate d2detector
+```
+
 ## Install requirements
 ```bash
 pip install -r requirements.txt
+```
+## Get data
+```bash
+bash setup_data.sh
 ```
 
 ## Split train test
@@ -13,8 +23,8 @@ python d2detector/cocosplit.py --having-annotations -s 0.9 dataset/annotations.j
 ## Train
 ```bash
 python train.py \
-    --datapath_train 'data/train.json' \
-    --datapath_test 'data/test.json' \
+    --datapath_train 'dataset/train.json' \
+    --datapath_test 'dataset/test.json' \
     --imagepath 'dataset/images'
 
 # or simply
@@ -38,7 +48,7 @@ python inference.py
 With fps:
 - 0 is image
 - 1 is video
-- >1 is predict frame per second on video
+- greater than 1 is predict frame per second on video
 
 ## License
 ```bash
