@@ -43,7 +43,7 @@ python train.py
 python inference.py \
     --input_path 'sample/978.jpg' \
     --model_zoo 'COCO-Detection/faster_rcnn_R_50_FPN_3x.yaml' \
-    --weight 'output/model_path.pth' \
+    --weight 'output/model_final.pth' \
     --threshold 0.7 \
     --fps 0 \
     --output_path 'inference/' 
