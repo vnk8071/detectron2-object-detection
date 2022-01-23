@@ -47,6 +47,6 @@ class D2Trainer(DefaultTrainer):
             output_folder = os.path.join(cfg.OUTPUT_DIR, "inference")
         return COCOEvaluator(dataset_name, cfg, True, output_folder)
 
-    @classmethod
-    def build_train_loader(cls, cfg):
-        return build_detection_train_loader(cfg, mapper=build_train_aug)
+    # @classmethod
+    # def build_train_loader(cls, cfg):
+    #     return build_detection_train_loader(cfg, mapper=build_train_aug)

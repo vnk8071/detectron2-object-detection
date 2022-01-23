@@ -34,7 +34,7 @@ def add_d2trainer_config(cfg):
     cfg.SOLVER.IMS_PER_BATCH = 2
     cfg.SOLVER.BASE_LR = 0.0005
     cfg.SOLVER.MAX_ITER = 2000
-    cfg.SOLVER.STEPS = (2000,)
+    cfg.SOLVER.STEPS = (1000,)
     cfg.SOLVER.WARMUP_ITERS = 500
     cfg.SOLVER.GAMMA = 0.05
 
