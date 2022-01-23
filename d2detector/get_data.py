@@ -49,6 +49,6 @@ if __name__ == '__main__':
     download_file_from_google_drive(FILE_ID, TARGET_PATH)
     print('Download done')
 
-    with ZipFile('./dataset/hymenoptera_data.zip', 'r') as zip_file:
+    with ZipFile('./dataset/mask-fpt-ai.zip', 'r') as zip_file:
         zip_file.extractall('./dataset')
     print('Success unzip file')
