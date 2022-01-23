@@ -59,6 +59,12 @@ python inference.py
 
 **Check image or video in inference folder**
 
+## Output
+![evaluate]()
+
+**Sample**
+![sample]()
+
 ## License
 ```bash
 @misc{wu2019detectron2,
