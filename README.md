@@ -52,10 +52,12 @@ python inference.py \
 python inference.py
 ```
 
-With fps:
+*With fps*:
 - 0 is image
 - 1 is video
 - greater than 1 is predict frame per second on video
+
+**Check image or video in inference folder**
 
 ## License
 ```bash
