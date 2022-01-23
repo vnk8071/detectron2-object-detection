@@ -13,12 +13,8 @@ def add_d2trainer_config(cfg):
     cfg.MODEL.WEIGHTS = model_zoo.get_checkpoint_url(
         'COCO-Detection/faster_rcnn_R_50_FPN_3x.yaml')
 
-    # Input
-    cfg.INPUT.MIN_SIZE_TEST = 800
-    cfg.INPUT.MAX_SIZE_TEST = 1333
-
     # Dataloader
-    cfg.DATALOADER.NUM_WORKERS = 2
+    cfg.DATALOADER.NUM_WORKERS = 4
     cfg.DATALOADER.SAMPLER_TRAIN = "TrainingSampler"
 
     # Model detail
@@ -37,20 +33,19 @@ def add_d2trainer_config(cfg):
     # Solver
     cfg.SOLVER.IMS_PER_BATCH = 2
     cfg.SOLVER.BASE_LR = 0.0005
-    cfg.SOLVER.MAX_ITER = 1000
+    cfg.SOLVER.MAX_ITER = 2000
     cfg.SOLVER.STEPS = (2000,)
     cfg.SOLVER.WARMUP_ITERS = 500
     cfg.SOLVER.GAMMA = 0.05
 
-    cfg.TEST.EVAL_PERIOD = 1000
+    cfg.TEST.EVAL_PERIOD = 2000
     os.makedirs(cfg.OUTPUT_DIR, exist_ok=True)
 
 
-def add_d2test_config():
+def add_d2test_config(cfg):
     """
     Add config for testing
     """
-    cfg = get_cfg()
     cfg.merge_from_file(model_zoo.get_config_file(
         "COCO-Detection/faster_rcnn_R_50_FPN_3x.yaml"))
     cfg.DATALOADER.NUM_WORKERS = 2

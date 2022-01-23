@@ -19,7 +19,7 @@ def build_train_aug(dataset_dict):
 
     # Data augmentation
     transform_list = T.AugmentationList([
-        T.ResizeShortestEdge((800, ), 1200, sample_style='choice'),
+        T.ResizeShortestEdge((480, ), 720, sample_style='choice'),
         T.RandomFlip(prob=0.8, horizontal=True),
         T.RandomCrop(crop_type='relative', crop_size=[0.9, 0.9]),
     ])

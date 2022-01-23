@@ -12,26 +12,25 @@ import numpy as np
 import time
 from tqdm import tqdm
 import copy
-import matplotlib.image as mpimg
-import matplotlib.pyplot as plt
+import shutil
 import argparse
 
 
 CLASSES = ['no_mask', 'mask', 'incorrect_mask']
-DEVICE = 'gpu'
+DEVICE = 'cuda'
 
 parser = argparse.ArgumentParser(description='Predict bounding box for video')
-parser.add_argument('-i', dest='input_path', type=str,
-                    default="./sample/", help='Path of video to predict')
-parser.add_argument('-m', dest='model_zoo', type=str,
+parser.add_argument('--input_path', dest='input_path', type=str,
+                    default="./sample/978.jpg", help='Path of video to predict')
+parser.add_argument('--model_zoo', dest='model_zoo', type=str,
                     default="COCO-Detection/faster_rcnn_R_50_FPN_3x.yaml", help='Path of model to predict')
-parser.add_argument('-w', dest='weight', type=str,
+parser.add_argument('--weight', dest='weight', type=str,
                     default="./output/model_path.pth", help='Path weight trained of model')
 parser.add_argument('--threshold', dest='threshold', type=float, default=0.7,
                     help='Threshold to bounding box display')
 parser.add_argument('--fps', dest='fps_predict', type=int, default=0,
                     help='Number of frame per second (default is 0) to predict video')
-parser.add_argument('-o', dest='output_path', type=str,
+parser.add_argument('--output_path', dest='output_path', type=str,
                     default="./inference/", help='Path of video to save')
 
 args = parser.parse_args()
@@ -81,13 +80,13 @@ def display_predict(args):
         args.model_zoo))
     cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = args.threshold
     cfg.MODEL.WEIGHTS = args.weight
-    cfg.MODEL.DEVICE = "gpu"
+    cfg.MODEL.DEVICE = "cuda"
     cfg.MODEL.ROI_HEADS.NUM_CLASSES = len(CLASSES)
     metadata = MetadataCatalog.get("test")
     metadata.set(thing_classes=CLASSES)
 
     # get image
-    im = mpimg.imread(args.input_path)
+    im = cv2.imread(args.input_path)
     # Create predictor
     predictor = DefaultPredictor(cfg)
 
@@ -101,8 +100,8 @@ def display_predict(args):
                    scale=1)
     v = v.draw_instance_predictions(outputs["instances"].to("cpu"))
     print("V:", v)
-    plt.imshow(v.get_image()[:, :, ::-1])
-    plt.show()
+    cv2.imwrite(output_path + input_path.rsplit("/", 1)
+                [-1], v.get_image()[:, :, ::-1])
 
 
 def segment4video(input_path, output_path, predictor, metadata):
@@ -183,6 +182,9 @@ if __name__ == '__main__':
     predictor, metadata = setup()
     start = time.perf_counter()
     start_predict = time.monotonic()
+    if os.path.exists(output_path):
+        shutil.rmtree(output_path)
+    os.makedirs(output_path)
     if fps_predict == 0:
         display_predict(args)
     elif fps_predict == 1:
