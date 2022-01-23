@@ -60,10 +60,10 @@ python inference.py
 **Check image or video in inference folder**
 
 ## Output
-![evaluate]()
+![evaluate](https://github.com/vnk8071/detectron2-object-detection/blob/master/image/output.jpg)
 
 **Sample**
-![sample]()
+![sample](https://github.com/vnk8071/detectron2-object-detection/blob/master/image/sample.jpg)
 
 ## License
 ```bash
