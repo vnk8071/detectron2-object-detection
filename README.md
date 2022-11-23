@@ -65,7 +65,7 @@ python inference.py
 **Sample**
 ![sample](https://github.com/vnk8071/detectron2-object-detection/blob/master/image/sample.jpg)
 
-## Export model to traing
+## Export model to tracing
 ```bash
 python d2detector/export_model_tracing.py \
     --sample_image 'sample/978.jpg' \
