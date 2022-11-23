@@ -12,7 +12,7 @@ conda activate d2detector
 ### Torch CUDA and Detectron2
 ```bash
 pip install torch==1.10.0+cu111 torchvision==0.11.0+cu111 torchaudio==0.10.0 -f https://download.pytorch.org/whl/torch_stable.html
-!pip install detectron2 -f https://dl.fbaipublicfiles.com/detectron2/wheels/cu111/torch1.10/index.html
+pip install detectron2 -f https://dl.fbaipublicfiles.com/detectron2/wheels/cu111/torch1.10/index.html
 ```
 Include Detectron2: Follow CUDA and Torch version to run this project.
 
@@ -35,6 +35,11 @@ bash setup_data.sh
 ```
 Include: 1 folder images (790 images) and 1 annotations coco format
 
+## Deal video dataset
+I have already define some functions to convert dataset video to images.
+```
+python d2detector/video2frame.py --data_paths /path/to/dataset/video --output dataset/images
+```
 ## Split train test
 ```bash
 python d2detector/cocosplit.py --having-annotations -s 0.9 dataset/annotations.json dataset/train.json dataset/test.json
