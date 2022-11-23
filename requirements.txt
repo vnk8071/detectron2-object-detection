@@ -1,13 +1,12 @@
 pycocotools==2.0.2
 pyyaml==5.1
-torch>=1.7.0
-torchvision>=0.8.1
 opencv-python==4.1.2.30
 fastapi==0.63.0
 pydantic==1.8.1
 uvicorn==0.13.4
 streamlit==0.82.0
 python-multipart==0.0.5
+protobuf==3.9.2
 gshell==5.5.2
 pandas==1.2.5
 tqdm==4.61.1
@@ -15,5 +14,3 @@ multipledispatch==0.6.0
 scikit-learn==0.24.2
 matplotlib==3.4.3
 funcy==1.16
--f https://dl.fbaipublicfiles.com/detectron2/wheels/cu113/torch1.10/index.html
-detectron2

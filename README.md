@@ -9,14 +9,27 @@ conda activate d2detector
 ```
 
 ## Install requirements
+### Torch CUDA and Detectron2
 ```bash
-pip install -r requirements.txt
+pip install torch==1.10.0+cu111 torchvision==0.11.0+cu111 torchaudio==0.10.0 -f https://download.pytorch.org/whl/torch_stable.html
+!pip install detectron2 -f https://dl.fbaipublicfiles.com/detectron2/wheels/cu111/torch1.10/index.html
 ```
 Include Detectron2: Follow CUDA and Torch version to run this project.
 
 Link detail: https://detectron2.readthedocs.io/en/latest/tutorials/install.html#install-pre-built-detectron2-linux-only
 
-## Get data
+### Related packages
+```bash
+pip install -r requirements.txt
+```
+
+## Dataset
+- mask-fpt-ai.zip: Include 1 folder images (790 images) and 1 annotations coco format
+- annotations.json: Annotations of above dataset
+- train.json: Annotations for training (100%)
+- test.json: Annotations for testing (20%)
+
+## Get data (Sample)
 ```bash
 bash setup_data.sh
 ```
