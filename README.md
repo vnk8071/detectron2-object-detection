@@ -91,7 +91,9 @@ python d2detector/export_model_tracing.py \
     --threshold 0.7 \
     --output_path 'output/' 
 ```
+After have model tracing, you can follow my repository about inference Detectron2 by C++.
 
+Link repo: https://github.com/vnk8071/AI-on-Cpp/tree/main/Detectron2-Cpp
 ## License
 ```bash
 @misc{wu2019detectron2,
